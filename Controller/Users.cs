@@ -88,11 +88,18 @@ public class LoginAndCreation()
             }
             if (validPassword && validName) usercreated = true;
         }
-        slu.LoadUser(userinfo);
+        User user = new User{Username = username, Password = password};
+        slu.SaveUser(user, username);
         Console.Clear();
         Console.WriteLine("User created");
         Console.WriteLine("Proceed to login");
         Console.ReadKey();
 
+    }
+
+    public bool LogIn()
+    {
+
+        return false;
     }
 }
