@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        LoginAndCreation lac = new LoginAndCreation();
         bool exit = false;
         while (!exit)
         {
@@ -18,7 +19,8 @@ class Program
                 case ConsoleKey.D1:
                     break;
                 case ConsoleKey.D2:
-                    
+                    lac.CreateUser();
+                    //lac.LogIn();
                     break;
                 case ConsoleKey.D0:
                     exit = true;

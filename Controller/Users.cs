@@ -1,5 +1,7 @@
+using UserSaveLoader.Data;
 public class LoginAndCreation()
 {
+    public SaveLoadUser slu = new SaveLoadUser();
     public void CreateUser()
     {
         bool usercreated = false;
@@ -86,6 +88,7 @@ public class LoginAndCreation()
             }
             if (validPassword && validName) usercreated = true;
         }
+        slu.LoadUser(userinfo);
         Console.Clear();
         Console.WriteLine("User created");
         Console.WriteLine("Proceed to login");
