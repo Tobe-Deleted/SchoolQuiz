@@ -11,5 +11,11 @@ namespace UserSaveLoader.Data
             string json = JsonSerializer.Serialize(Newuser);
             File.WriteAllText(filepath + username + ".json", json);
         }
+
+        public User LoadUser(string username)
+        {
+            return JsonSerializer.Deserialize<User>(File.ReadAllText(filepath + username + ".json"))
+                    ?? new User;
+        }
     }
 }

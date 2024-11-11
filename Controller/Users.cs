@@ -3,16 +3,86 @@ public class LoginAndCreation()
     public void CreateUser()
     {
         bool usercreated = false;
-        while(!usercreated)
+        string username = "!";
+        string password = "";
+        while(!usercreated) // User loop TODO: check if needed
         {
+            string validChars = "abcdefghjiklmnopqrstuvwxyzæøå1234567890";
             bool validName = false;
-            while(!validName)
+            bool validPassword = false;
+            while(!validName) // Username loop
             {
+                validName = true;
                 Console.Clear();
                 Console.WriteLine("~~User creation~~");
                 Console.WriteLine("Username: ");
-                string username = Console.ReadLine() ?? "";
-                if (username.Length > 2 && )
+                username = Console.ReadLine() ?? "!";
+                username = username.ToLower();
+                if (false/*User already exists*/) //TODO: make a check for username
+                {
+                    Console.WriteLine("Username is already in use");
+                    Console.ReadKey();
+                }
+                else if (username.Length > 2)
+                {   
+                    foreach (char ch in username)
+                    {
+                        if (!validChars.Contains(ch))
+                        {
+                            validName = false;
+                            Console.WriteLine("Username can only contain numbers or letters");
+                            Console.ReadKey();
+                            break;
+                        }
+                    }
+                }
+                else 
+                {
+                Console.WriteLine("Username must contain 3 or more characters");
+                Console.ReadKey();
+                }
+
+            }
+
+            while (!validPassword)
+            {
+                Console.Clear();
+                Console.WriteLine("~~User Creation~~");
+                Console.WriteLine($"Username: {username}");
+                Console.Write("Password: ");
+                password = Console.ReadLine() ?? "!";
+                if (password.Length > 6)
+                {
+                    foreach (char ch in "1234567890!@#¤%&/()=?+}][{€$£@-_,;:.")
+                    {
+                        if(password.Contains(ch))
+                        {
+                            validPassword = true;
+                            break;
+                        }
+                    }
+                    foreach (char ch in "1234567890")
+                    {
+                        if(password.Contains(ch))
+                        {
+                            validPassword = true;
+                            break;
+                        }
+                        validPassword = false;
+                    }
+                    foreach (char ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ")
+                    {
+                        if(password.Contains(ch))
+                        {
+                            validPassword = true;
+                            break;
+                        }
+                        validPassword = false;
+                    }
+                }
+                else Console.WriteLine("Password must be more than 6 characters long");
+                if(!validPassword) Console.WriteLine("Password must contain at least one capital letter, number and special symbol");
+                Console.ReadKey();
             }
         }
     }
