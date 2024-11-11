@@ -13,14 +13,14 @@ class Program
             Console.WriteLine("1. Log in");
             Console.WriteLine("2. Create new user");
             Console.WriteLine("0. Exit");
-            ConsoleKey LoggedOutChoice = Console.ReadKey().Key;
-            switch (LoggedOutChoice)
+            ConsoleKey MainMenuChoice = Console.ReadKey().Key;
+            switch (MainMenuChoice)
             {
                 case ConsoleKey.D1:
+                    lac.LogIn();
                     break;
                 case ConsoleKey.D2:
                     lac.CreateUser();
-                    //lac.LogIn();
                     break;
                 case ConsoleKey.D0:
                     exit = true;

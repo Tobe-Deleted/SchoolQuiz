@@ -4,10 +4,10 @@ public class LoginAndCreation()
     public SaveLoadUser slu = new SaveLoadUser();
     public void CreateUser()
     {
-        bool usercreated = false;
+        bool userCreated = false;
         string username = "!";
         string password = "";
-        while(!usercreated) // User loop TODO: check if needed
+        while(!userCreated) // User loop TODO: check if needed
         {
             string validChars = "abcdefghjiklmnopqrstuvwxyzæøå1234567890";
             bool validName = false;
@@ -86,7 +86,7 @@ public class LoginAndCreation()
                 if(!validPassword) Console.WriteLine("Password must contain at least one capital letter, number and special symbol\n");
                 Console.ReadKey();
             }
-            if (validPassword && validName) usercreated = true;
+            if (validPassword && validName) userCreated = true;
         }
         User user = new User{Username = username, Password = password};
         slu.SaveUser(user, username);
@@ -99,7 +99,16 @@ public class LoginAndCreation()
 
     public bool LogIn()
     {
-
+        string username;
+        string password;
+        Console.Clear();
+        Console.WriteLine("~~Log in~~");
+        Console.Write("Enter Username: ");
+        username = Console.ReadLine() ?? "!";
+        User user = slu.LoadUser(username);
+        Console.Write("Enter password: ");
+        password = Console.ReadLine() ?? "!";
+        if(password == user.Password) return true;
         return false;
     }
 }
