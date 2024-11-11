@@ -6,7 +6,7 @@ namespace UserSaveLoader.Data
     public class SaveLoadUser
     {
         private readonly string filepath = "data/";
-        public void CreateUser(User Newuser, string username)
+        public void SaveUser(User Newuser, string username)
         {
             string json = JsonSerializer.Serialize(Newuser);
             File.WriteAllText(filepath + username + ".json", json);
