@@ -1,0 +1,14 @@
+C:\Users\Olive\Documents\kodehode\loginProject\bin\Debug\net8.0\loginProject.exe
+C:\Users\Olive\Documents\kodehode\loginProject\bin\Debug\net8.0\loginProject.deps.json
+C:\Users\Olive\Documents\kodehode\loginProject\bin\Debug\net8.0\loginProject.runtimeconfig.json
+C:\Users\Olive\Documents\kodehode\loginProject\bin\Debug\net8.0\loginProject.dll
+C:\Users\Olive\Documents\kodehode\loginProject\bin\Debug\net8.0\loginProject.pdb
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.AssemblyInfoInputs.cache
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.AssemblyInfo.cs
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.csproj.CoreCompileInputs.cache
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.dll
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\refint\loginProject.dll
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.pdb
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.genruntimeconfig.cache
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\ref\loginProject.dll
