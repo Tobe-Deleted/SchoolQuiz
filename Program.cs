@@ -42,6 +42,7 @@ class Program
                     break;
                 case ConsoleKey.D0:
                     exit = true;
+                    Console.Clear();
                     break;
             }
         }
