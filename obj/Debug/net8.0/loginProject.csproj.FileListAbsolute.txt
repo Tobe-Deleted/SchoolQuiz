@@ -12,3 +12,4 @@ C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\refint\loginProj
 C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.pdb
 C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.genruntimeconfig.cache
 C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\ref\loginProject.dll
+C:\Users\Olive\Documents\kodehode\loginProject\obj\Debug\net8.0\loginProject.sourcelink.json

@@ -9,7 +9,7 @@ class Program
         while (!exit)
         {
             Console.Clear();
-            Console.WriteLine("Login project v 0.1");
+            Console.WriteLine("Login project v 0.5");
             Console.WriteLine("1. Log in");
             Console.WriteLine("2. Create new user");
             Console.WriteLine("0. Exit");
@@ -30,8 +30,11 @@ class Program
                         exit = LoginMainView(username);
                         
                     }
-                    else Console.WriteLine("Incorrect login");
-                    Console.ReadKey();
+                    else 
+                    {
+                        Console.WriteLine("Incorrect login");
+                        Console.ReadKey();
+                    }
                     break;
 
                 case ConsoleKey.D2:
@@ -46,6 +49,10 @@ class Program
 
     static bool LoginMainView(string user)
     {
+        Console.WriteLine("You've successfully logged in");
+        Console.WriteLine("Content will come in the future");
+        Console.ReadKey();
+        Console.Clear();
         return true;
     }
 }

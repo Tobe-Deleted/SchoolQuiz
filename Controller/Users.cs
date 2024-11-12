@@ -1,6 +1,9 @@
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UserSaveLoader.Data;
 public class LoginAndCreation()
 {
+    Checks checks = new Checks();
     SaveLoadUser slu = new SaveLoadUser();
     Crypto crypto = new Crypto();
     public void CreateUser()
@@ -12,19 +15,22 @@ public class LoginAndCreation()
         {
             string validChars = "abcdefghjiklmnopqrstuvwxyzæøå1234567890";
             bool validName = false;
-            bool validPassword = false;
+            bool numberOrSpecialChar = false;
+            bool capitalLetter = false;
             while(!validName) // Username loop
             {
                 validName = true;
                 Console.Clear();
-                Console.WriteLine("~~User creation~~");
+                Console.WriteLine("~~User Creation~~");
                 Console.Write("Username: ");
                 username = Console.ReadLine() ?? "!";
                 username = username.ToLower();
                 if (slu.LoadUser(username).Username != "!")
                 {
                     Console.WriteLine("Username is already in use");
-                    Console.ReadKey();
+                    if (checks.BackToMain())
+                        return;
+                    validName = false;
                 }
                 else if (username.Length > 2)
                 {   
@@ -32,22 +38,24 @@ public class LoginAndCreation()
                     {
                         if (!validChars.Contains(ch))
                         {
-                            validName = false;
                             Console.WriteLine("Username can only contain numbers or letters");
-                            Console.ReadKey();
-                            break;
+                            if (checks.BackToMain())
+                                return;
+                            validName = false;
                         }
                     }
                 }
                 else 
                 {
                 Console.WriteLine("Username must contain 3 or more characters");
-                Console.ReadKey();
+                if (checks.BackToMain())
+                    return;
+                validName = false;
                 }
 
             }
 
-            while (!validPassword)
+            while (!numberOrSpecialChar || !capitalLetter)
             {
                 Console.Clear();
                 Console.WriteLine("~~User Creation~~");
@@ -60,40 +68,41 @@ public class LoginAndCreation()
                     {
                         if(password.Contains(ch))
                         {
-                            validPassword = true;
+                            numberOrSpecialChar = true;
                             break;
                         }
-                    }
-                    foreach (char ch in "1234567890")
-                    {
-                        if(password.Contains(ch))
-                        {
-                            validPassword = true;
-                            break;
-                        }
-                        validPassword = false;
                     }
                     foreach (char ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ")
                     {
+
                         if(password.Contains(ch))
                         {
-                            validPassword = true;
+                            capitalLetter = true;
                             break;
                         }
-                        validPassword = false;
+                    }
+                    if(!numberOrSpecialChar || !capitalLetter) 
+                    {
+                        Console.WriteLine("Password must contain at least one capital letter and a number or special symbol\n");
+                        if (checks.BackToMain())
+                            return;
                     }
                 }
-                else Console.WriteLine("Password must be more than 6 characters long");
-                if(!validPassword) Console.WriteLine("Password must contain at least one capital letter, number and special symbol\n");
-                Console.ReadKey();
+                else 
+                {
+                    Console.WriteLine("Password must be more than 6 characters long");
+                    if (checks.BackToMain())
+                        return;
+                }
+
             }
-            if (validPassword && validName) userCreated = true;
+            if (capitalLetter && numberOrSpecialChar && validName) userCreated = true;
         }
         User user = new User{Username = username, Password = crypto.Hashed(password)};
         slu.SaveUser(user, username);
         Console.Clear();
         Console.WriteLine("User created");
-        Console.WriteLine("Proceed to login");
+        Console.WriteLine("Press any key to proceed");
         Console.ReadKey();
     }
 

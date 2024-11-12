@@ -14,8 +14,10 @@ namespace UserSaveLoader.Data
 
         public User LoadUser(string username)
         {
+            if(File.Exists(loginFilepath + username + ".json"))
             return JsonSerializer.Deserialize<User>(File.ReadAllText(loginFilepath + username + ".json"))
                    ?? new User{Username = "!", Password = "!"};
+            return new User{Username = "!", Password = "!"};
         }
     }
 }
