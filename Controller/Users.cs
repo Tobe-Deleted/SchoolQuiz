@@ -99,9 +99,8 @@ public class LoginAndCreation()
 
     public bool LogIn(string username, string password)
     {
-        if (username == "!" || password == "!") return false;
         User user = slu.LoadUser(username);
-        if(password == user.Password) return true;
+        if(password == user.Password && user.Username != "!") return true; 
         return false;
     }
 }

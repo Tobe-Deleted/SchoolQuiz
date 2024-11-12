@@ -14,9 +14,8 @@ namespace UserSaveLoader.Data
 
         public User LoadUser(string username)
         {
-            return JsonSerializer.Deserialize<User>(File.ReadAllText(loginFilepath + username + ".json"));
-            //      ?? new User;
-            //TODO: figure out why I can't return new user
+            return JsonSerializer.Deserialize<User>(File.ReadAllText(loginFilepath + username + ".json"))
+                   ?? new User{Username = "!", Password = "!"};
         }
     }
 }

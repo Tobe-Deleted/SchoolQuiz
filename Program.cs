@@ -26,9 +26,13 @@ class Program
                     Console.Write("Enter password: ");
                     password = Console.ReadLine() ?? "!";
                     if (lac.LogIn(username, password))
-                        Console.WriteLine("Logged in");//TODO: replace with logged in view
-                    Console.WriteLine("Incorrect login");
-                    continue;
+                    {
+                        exit = LoginMainView(username);
+                        
+                    }
+                    else Console.WriteLine("Incorrect login");
+                    Console.ReadKey();
+                    break;
 
                 case ConsoleKey.D2:
                     lac.CreateUser();
@@ -38,6 +42,10 @@ class Program
                     break;
             }
         }
+    }
 
+    static bool LoginMainView(string user)
+    {
+        return true;
     }
 }
