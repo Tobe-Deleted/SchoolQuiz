@@ -97,17 +97,10 @@ public class LoginAndCreation()
 
     }
 
-    public bool LogIn()
+    public bool LogIn(string username, string password)
     {
-        string username;
-        string password;
-        Console.Clear();
-        Console.WriteLine("~~Log in~~");
-        Console.Write("Enter Username: ");
-        username = Console.ReadLine() ?? "!";
+        if (username == "!" || password == "!") return false;
         User user = slu.LoadUser(username);
-        Console.Write("Enter password: ");
-        password = Console.ReadLine() ?? "!";
         if(password == user.Password) return true;
         return false;
     }

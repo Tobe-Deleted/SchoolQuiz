@@ -17,8 +17,19 @@ class Program
             switch (MainMenuChoice)
             {
                 case ConsoleKey.D1:
-                    lac.LogIn();
-                    break;
+                    string username;
+                    string password;
+                    Console.Clear();
+                    Console.WriteLine("~~Log in~~");
+                    Console.Write("Enter Username: ");
+                    username = Console.ReadLine() ?? "!";
+                    Console.Write("Enter password: ");
+                    password = Console.ReadLine() ?? "!";
+                    if (lac.LogIn(username, password))
+                        Console.WriteLine("Logged in");//TODO: replace with logged in view
+                    Console.WriteLine("Incorrect login");
+                    continue;
+
                 case ConsoleKey.D2:
                     lac.CreateUser();
                     break;
