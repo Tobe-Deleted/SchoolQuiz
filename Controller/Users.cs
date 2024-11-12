@@ -21,7 +21,7 @@ public class LoginAndCreation()
                 Console.Write("Username: ");
                 username = Console.ReadLine() ?? "!";
                 username = username.ToLower();
-                if (false/*User already exists*/) //TODO: make a check for username
+                if (slu.LoadUser(username).Username != "!")
                 {
                     Console.WriteLine("Username is already in use");
                     Console.ReadKey();
@@ -95,7 +95,6 @@ public class LoginAndCreation()
         Console.WriteLine("User created");
         Console.WriteLine("Proceed to login");
         Console.ReadKey();
-
     }
 
     public bool LogIn(string username, string password)
