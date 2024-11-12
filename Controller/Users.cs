@@ -1,13 +1,13 @@
 using UserSaveLoader.Data;
 public class LoginAndCreation()
 {
-    public SaveLoadUser slu = new SaveLoadUser();
+    SaveLoadUser slu = new SaveLoadUser();
+    Crypto crypto = new Crypto();
     public void CreateUser()
     {
         bool userCreated = false;
         string username = "!";
         string password = "";
-        Crypto crypto = new Crypto();
         while(!userCreated) // User loop TODO: check if needed
         {
             string validChars = "abcdefghjiklmnopqrstuvwxyzæøå1234567890";
@@ -101,7 +101,7 @@ public class LoginAndCreation()
     public bool LogIn(string username, string password)
     {
         User user = slu.LoadUser(username);
-        if(password == user.Password && user.Username != "!") return true; 
+        if(crypto.Hashed(password) == user.Password && user.Username != "!") return true; 
         return false;
     }
 }
