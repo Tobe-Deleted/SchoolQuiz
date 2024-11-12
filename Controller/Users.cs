@@ -7,6 +7,7 @@ public class LoginAndCreation()
         bool userCreated = false;
         string username = "!";
         string password = "";
+        Crypto crypto = new Crypto();
         while(!userCreated) // User loop TODO: check if needed
         {
             string validChars = "abcdefghjiklmnopqrstuvwxyzæøå1234567890";
@@ -88,7 +89,7 @@ public class LoginAndCreation()
             }
             if (validPassword && validName) userCreated = true;
         }
-        User user = new User{Username = username, Password = password};
+        User user = new User{Username = username, Password = crypto.Hashed(password)};
         slu.SaveUser(user, username);
         Console.Clear();
         Console.WriteLine("User created");
