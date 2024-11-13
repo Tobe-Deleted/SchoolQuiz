@@ -23,15 +23,15 @@ public class LoginAndCreation()
             {
                 validName = true;
                 Console.Clear();
-                Console.WriteLine("~~User Creation~~");
-                Console.Write("Username: ");
+                Console.WriteLine("~~Lag Bruker~~");
+                Console.Write("Brukernavn: ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 username = Console.ReadLine() ?? "!";
                 Console.ResetColor();
                 username = username.ToLower();
                 if (slu.LoadUser(username).Username != "!")
                 {
-                    Console.WriteLine("Username is already in use");
+                    Console.WriteLine("Brukernavn er allerede i bruk");
                     if (checks.BackToMain())
                         return;
                     validName = false;
@@ -42,7 +42,7 @@ public class LoginAndCreation()
                     {
                         if (!validChars.Contains(ch))
                         {
-                            Console.WriteLine("Username can only contain numbers or letters");
+                            Console.WriteLine("Brukernavn kan kun inneholde bokstaver og tall");
                             if (checks.BackToMain())
                                 return;
                             validName = false;
@@ -51,7 +51,7 @@ public class LoginAndCreation()
                 }
                 else 
                 {
-                Console.WriteLine("Username must contain 3 or more characters");
+                Console.WriteLine("Brukernavn må inneholde minst 3 tegn");
                 if (checks.BackToMain())
                     return;
                 validName = false;
@@ -62,12 +62,12 @@ public class LoginAndCreation()
             while (!numberOrSpecialChar || !capitalLetter || !match)
             {
                 Console.Clear();
-                Console.WriteLine("~~User Creation~~");
-                Console.Write("Username: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("~~Lag Bruker~~");
+                Console.Write("Brukernavn: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;//Just testing
                 Console.WriteLine(username);
                 Console.ResetColor();
-                Console.Write("Password: ");
+                Console.Write("Passord: ");
                 password = Console.ReadLine() ?? "!";
                 if (password.Length > 6)
                 {
@@ -90,25 +90,25 @@ public class LoginAndCreation()
                     }
                     if(!numberOrSpecialChar || !capitalLetter) 
                     {
-                        Console.WriteLine("Password must contain at least one capital letter and a number or special symbol\n");
+                        Console.WriteLine("passord må inneholde minst én stor bokstav og et spesialtegn eller nummer\n");
                         if (checks.BackToMain())
                             return;
                     }
                 }
                 else 
                 {
-                    Console.WriteLine("Password must be more than 6 characters long");
+                    Console.WriteLine("Passord må være mer enn 6 tegn langt");
                     if (checks.BackToMain())
                         return;
                 }
                 if (capitalLetter && numberOrSpecialChar)
                 {
-                    Console.Write("Type password again: ");
+                    Console.Write("Skriv inn passord på nytt: ");
                     if (password == Console.ReadLine())
                         match = true;
                     else 
                     {
-                        Console.WriteLine("The passwords did not match");
+                        Console.WriteLine("Passordet var ikke skrevet inn likt");
                         if(checks.BackToMain())
                             return;
                     }
@@ -120,8 +120,8 @@ public class LoginAndCreation()
         User user = new User{Username = username, Password = crypto.Hashed(password)};
         slu.SaveUser(user, username);
         Console.Clear();
-        Console.WriteLine("User created");
-        Console.WriteLine("Press any key to proceed");
+        Console.WriteLine("Bruker lagret!");
+        Console.WriteLine("Trykk en knapp for å fortsette");
         Console.ReadKey();
     }
 

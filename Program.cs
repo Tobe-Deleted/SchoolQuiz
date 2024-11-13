@@ -9,10 +9,10 @@ class Program
         while (!exit)
         {
             Console.Clear();
-            Console.WriteLine("Login project v 0.5");
-            Console.WriteLine("1. Log in");
-            Console.WriteLine("2. Create new user");
-            Console.WriteLine("0. Exit");
+            Console.WriteLine("Bjørndalsskogen Quiz v 0.6");
+            Console.WriteLine("1. Logg inn");
+            Console.WriteLine("2. Lag ny bruker");
+            Console.WriteLine("0. Avslutt");
             ConsoleKey MainMenuChoice = Console.ReadKey().Key;
             switch (MainMenuChoice)
             {
@@ -20,19 +20,19 @@ class Program
                     string username;
                     string password;
                     Console.Clear();
-                    Console.WriteLine("~~Log in~~");
-                    Console.Write("Enter Username: ");
+                    Console.WriteLine("~~Logg inn~~");
+                    Console.Write("Brukernavn: ");
                     username = Console.ReadLine() ?? "!";
-                    Console.Write("Enter password: ");
+                    Console.Write("Passord: ");
                     password = Console.ReadLine() ?? "!";
                     if (lac.LogIn(username, password))
                     {
-                        exit = LoginMainView(username);
+                        exit = LoggedInMainMenu(username);
                         
                     }
                     else 
                     {
-                        Console.WriteLine("Incorrect login");
+                        Console.WriteLine("Feil passord eller brukernavn");
                         Console.ReadKey();
                     }
                     break;
@@ -48,19 +48,19 @@ class Program
         }
     }
 
-    static bool LoginMainView(string user)
+    static bool LoggedInMainMenu(string user)
     {
         bool exit = false;
         while (!exit)
         {
             Console.Clear();
-            Console.WriteLine($"You're logged in as {user}");
+            Console.WriteLine($"Du er logget inn som {user}");
             //Console.ReadKey();
             Console.WriteLine("----------------------------------------------------------------------------------------");
-            Console.WriteLine("1. Play");
-            Console.WriteLine("2. View scoreboard");
-            Console.WriteLine("3. Change password");
-            Console.WriteLine("0. Log out");
+            Console.WriteLine("1. Spill");
+            Console.WriteLine("2. Se Ledertavle");
+            Console.WriteLine("3. Endre passord");
+            Console.WriteLine("0. Logg ut");
             Console.WriteLine("-----------------------------------------------------------------------------------------");
             ConsoleKey mainMenuchoice = Console.ReadKey().Key;
             switch (mainMenuchoice)
@@ -68,12 +68,18 @@ class Program
                 case ConsoleKey.D0:
                     exit = true;
                     break;
+                case ConsoleKey.D1:
+                    break;
+                case ConsoleKey.D2:
+                    break;
+                case ConsoleKey.D3:
+                    break;
             }
         }
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine();
+        // Console.WriteLine();
         Console.ReadKey();
         Console.Clear();
         return true;

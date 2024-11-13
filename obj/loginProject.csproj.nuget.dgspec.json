@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Olive\\Documents\\kodehode\\loginProject\\loginProject.csproj": {}
+    "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\loginProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Olive\\Documents\\kodehode\\loginProject\\loginProject.csproj": {
+    "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\loginProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Olive\\Documents\\kodehode\\loginProject\\loginProject.csproj",
+        "projectUniqueName": "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\loginProject.csproj",
         "projectName": "loginProject",
-        "projectPath": "C:\\Users\\Olive\\Documents\\kodehode\\loginProject\\loginProject.csproj",
+        "projectPath": "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\loginProject.csproj",
         "packagesPath": "C:\\Users\\Olive\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Olive\\Documents\\kodehode\\loginProject\\obj\\",
+        "outputPath": "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Olive\\AppData\\Roaming\\NuGet\\NuGet.Config"

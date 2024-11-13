@@ -4,11 +4,11 @@ public class Checks()
 {
     public bool BackToMain()
     {
-        Console.Write("Do you wish to try again? y/n");
+        Console.Write("Vil du prøve igjen?? j/n");
         ConsoleKey tryagainNameChoice = Console.ReadKey().Key;
         switch (tryagainNameChoice)
         {
-            case ConsoleKey.Y:
+            case ConsoleKey.J:
                 return false;
             case ConsoleKey.N:
                 return true;
