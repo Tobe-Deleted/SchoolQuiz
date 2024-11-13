@@ -1,11 +1,11 @@
-#This is a quiz game!
+# This is a quiz game!
 
-My kids have asked to make a game. A math game was requested, I also intend to create English, Geography and History quizzes
+My kids have asked to make a game. A math game was requested, I also intend to create other games for their learning and enjoyment
+I am currently thinking about doing quizzes and hope to be able to create a system that can automatically explain what was done incorrectly
 
-##It contains / will contain
+## It contains / will contain
 
-###- A user system
-
+### A user system
   - Create user
   - Login
   - Scoreboard
@@ -13,8 +13,7 @@ My kids have asked to make a game. A math game was requested, I also intend to c
   - Possiblity to change passwords
   - Password hashing
 
-###- Several games
--
+### Several games
   - Math game
   - Geography game
   - History game
