@@ -50,11 +50,30 @@ class Program
 
     static bool LoginMainView(string user)
     {
-        Console.Clear();
-        Console.WriteLine($"You've successfully logged in as {user}");
-        //Console.ReadKey();
-        Console.WriteLine("Content will come in the future");
-
+        bool exit = false;
+        while (!exit)
+        {
+            Console.Clear();
+            Console.WriteLine($"You're logged in as {user}");
+            //Console.ReadKey();
+            Console.WriteLine("----------------------------------------------------------------------------------------");
+            Console.WriteLine("1. Play");
+            Console.WriteLine("2. View scoreboard");
+            Console.WriteLine("3. Change password");
+            Console.WriteLine("0. Log out");
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+            ConsoleKey mainMenuchoice = Console.ReadKey().Key;
+            switch (mainMenuchoice)
+            {
+                case ConsoleKey.D0:
+                    exit = true;
+                    break;
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine();
         Console.ReadKey();
         Console.Clear();
         return true;
