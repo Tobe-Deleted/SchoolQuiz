@@ -50,8 +50,8 @@ class Program
 
     static bool LoggedInMainMenu(string user)
     {
-        bool exit = false;
-        while (!exit)
+        Selector selector = new Selector();
+        while (true)
         {
             Console.Clear();
             Console.WriteLine($"Du er logget inn som {user}");
@@ -66,9 +66,9 @@ class Program
             switch (mainMenuchoice)
             {
                 case ConsoleKey.D0:
-                    exit = true;
-                    break;
+                    return false;
                 case ConsoleKey.D1:
+                    selector.SelectGame();
                     break;
                 case ConsoleKey.D2:
                     break;
