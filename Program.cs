@@ -50,8 +50,11 @@ class Program
 
     static bool LoginMainView(string user)
     {
-        Console.WriteLine("You've successfully logged in");
+        Console.Clear();
+        Console.WriteLine($"You've successfully logged in as {user}");
+        //Console.ReadKey();
         Console.WriteLine("Content will come in the future");
+
         Console.ReadKey();
         Console.Clear();
         return true;

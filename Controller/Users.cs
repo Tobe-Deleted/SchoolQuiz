@@ -1,11 +1,12 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks.Dataflow;
 using UserSaveLoader.Data;
 public class LoginAndCreation()
 {
     Checks checks = new Checks();
     SaveLoadUser slu = new SaveLoadUser();
-    Crypto crypto = new Crypto();
+    Encryption crypto = new Encryption();
     public void CreateUser()
     {
         bool userCreated = false;
@@ -17,13 +18,16 @@ public class LoginAndCreation()
             bool validName = false;
             bool numberOrSpecialChar = false;
             bool capitalLetter = false;
+            bool match = false;
             while(!validName) // Username loop
             {
                 validName = true;
                 Console.Clear();
                 Console.WriteLine("~~User Creation~~");
                 Console.Write("Username: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 username = Console.ReadLine() ?? "!";
+                Console.ResetColor();
                 username = username.ToLower();
                 if (slu.LoadUser(username).Username != "!")
                 {
@@ -55,11 +59,14 @@ public class LoginAndCreation()
 
             }
 
-            while (!numberOrSpecialChar || !capitalLetter)
+            while (!numberOrSpecialChar || !capitalLetter || !match)
             {
                 Console.Clear();
                 Console.WriteLine("~~User Creation~~");
-                Console.WriteLine($"Username: {username}");
+                Console.Write("Username: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(username);
+                Console.ResetColor();
                 Console.Write("Password: ");
                 password = Console.ReadLine() ?? "!";
                 if (password.Length > 6)
@@ -93,6 +100,18 @@ public class LoginAndCreation()
                     Console.WriteLine("Password must be more than 6 characters long");
                     if (checks.BackToMain())
                         return;
+                }
+                if (capitalLetter && numberOrSpecialChar)
+                {
+                    Console.Write("Type password again: ");
+                    if (password == Console.ReadLine())
+                        match = true;
+                    else 
+                    {
+                        Console.WriteLine("The passwords did not match");
+                        if(checks.BackToMain())
+                            return;
+                    }
                 }
 
             }

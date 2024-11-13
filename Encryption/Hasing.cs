@@ -1,5 +1,5 @@
 using System.Security.Cryptography;
-public class Crypto()
+public class Encryption()
 {
     //May cause collisions, but not very likely
     public string Hashed(string password)
