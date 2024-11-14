@@ -28,3 +28,6 @@ C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\loginProject.dll
 C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\loginProject.pdb
 C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\loginProject.genruntimeconfig.cache
 C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\ref\loginProject.dll
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\Spectre.Console.dll
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\loginProject.csproj.AssemblyReference.cache
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\loginPro.EFD8EF2E.Up2Date

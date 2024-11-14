@@ -2,6 +2,7 @@ public class Selector()
 {
     public void SelectGame(string username)
     {
+        Games game = new Games();
         while (true)
         {
             Console.Clear();
@@ -14,7 +15,7 @@ public class Selector()
                 case ConsoleKey.D0:
                     return;
                 case ConsoleKey.D1:
-                    //legg inn spill
+                    game.MathGame(username);
                     break;
             }
         }
