@@ -27,9 +27,10 @@ namespace UserSaveLoader.Data
         }
         public List<UserInfo> LoadUserInfo()
         {
-            if(!File.Exists(infoFilepath)) File.Create(infoFilepath);
-            return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath))
-                    ?? new List<UserInfo>();
+            if (File.Exists(infoFilepath))
+                return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath))
+                       ?? new List<UserInfo>();
+            return new List<UserInfo>();
         }
     }
 }
