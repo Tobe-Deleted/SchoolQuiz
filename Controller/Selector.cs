@@ -1,6 +1,6 @@
 public class Selector()
 {
-    public void SelectGame()
+    public void SelectGame(string username)
     {
         while (true)
         {

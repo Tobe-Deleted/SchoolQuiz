@@ -32,7 +32,7 @@ public class LoginAndCreation()
                 if (slu.LoadUser(username).Username != "!")
                 {
                     Console.WriteLine("Brukernavn er allerede i bruk");
-                    if (checks.BackToMain())
+                    if (checks.BackToMain("Vil du prøve på nytt?"))
                         return;
                     validName = false;
                 }
@@ -43,7 +43,7 @@ public class LoginAndCreation()
                         if (!validChars.Contains(ch))
                         {
                             Console.WriteLine("Brukernavn kan kun inneholde bokstaver og tall");
-                            if (checks.BackToMain())
+                            if (checks.BackToMain("Vil du prøve på nytt?"))
                                 return;
                             validName = false;
                         }
@@ -52,7 +52,7 @@ public class LoginAndCreation()
                 else 
                 {
                 Console.WriteLine("Brukernavn må inneholde minst 3 tegn");
-                if (checks.BackToMain())
+                if (checks.BackToMain("Vil du prøve på nytt?"))
                     return;
                 validName = false;
                 }
@@ -91,14 +91,14 @@ public class LoginAndCreation()
                     if(!numberOrSpecialChar || !capitalLetter) 
                     {
                         Console.WriteLine("passord må inneholde minst én stor bokstav og et spesialtegn eller nummer\n");
-                        if (checks.BackToMain())
+                        if (checks.BackToMain("Vil du prøve på nytt?"))
                             return;
                     }
                 }
                 else 
                 {
                     Console.WriteLine("Passord må være mer enn 6 tegn langt");
-                    if (checks.BackToMain())
+                    if (checks.BackToMain("Vil du prøve på nytt?"))
                         return;
                 }
                 if (capitalLetter && numberOrSpecialChar)
@@ -109,7 +109,7 @@ public class LoginAndCreation()
                     else 
                     {
                         Console.WriteLine("Passordet var ikke skrevet inn likt");
-                        if(checks.BackToMain())
+                        if(checks.BackToMain("Vil du prøve på nytt?"))
                             return;
                     }
                 }

@@ -1,9 +1,9 @@
 using System.Runtime.InteropServices;
 public class Checks()
 {
-    public bool BackToMain()
+    public bool BackToMain(string message)
     {
-        Console.Write("Vil du prøve igjen?? j/n");
+        Console.Write($"{message} j/n");
         ConsoleKey tryagainNameChoice = Console.ReadKey().Key;
         switch (tryagainNameChoice)
         {

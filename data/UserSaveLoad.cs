@@ -25,7 +25,7 @@ namespace UserSaveLoader.Data
             string json = JsonSerializer.Serialize(NewUserInfo);
             File.WriteAllText(infoFilepath, json);
         }
-        public List<UserInfo> LoadUserInfo(string username)
+        public List<UserInfo> LoadUserInfo()
         {
             return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath))
                     ?? new List<UserInfo>();

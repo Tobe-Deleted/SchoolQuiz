@@ -48,13 +48,13 @@ class Program
         }
     }
 
-    static bool LoggedInMainMenu(string user)
+    static bool LoggedInMainMenu(string username)
     {
         Selector selector = new Selector();
         while (true)
         {
             Console.Clear();
-            Console.WriteLine($"Du er logget inn som {user}");
+            Console.WriteLine($"Du er logget inn som {username}");
             //Console.ReadKey();
             Console.WriteLine("----------------------------------------------------------------------------------------");
             Console.WriteLine("1. Spill");
@@ -68,7 +68,7 @@ class Program
                 case ConsoleKey.D0:
                     return false;
                 case ConsoleKey.D1:
-                    selector.SelectGame();
+                    selector.SelectGame(username);
                     break;
                 case ConsoleKey.D2:
                     break;
@@ -76,12 +76,5 @@ class Program
                     break;
             }
         }
-        // Console.WriteLine();
-        // Console.WriteLine();
-        // Console.WriteLine();
-        // Console.WriteLine();
-        Console.ReadKey();
-        Console.Clear();
-        return true;
     }
 }
