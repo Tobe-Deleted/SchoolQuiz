@@ -15,10 +15,11 @@ public class Games
         {
             int lives = 3;
             int score = 0;
-            for(int i = 0; i < 10; i++)
+            for(int i = 1; i <= 10; i++)
             {
+                if(lives > 1) break;
                 Console.Clear();
-                Console.WriteLine("~~Mattematikk: Første nivå - 1 poeng per rett~~");
+                Console.WriteLine("~~Mattematikk: Første nivå - 1 poeng per rett svar~~");
 
                 Console.Write($"Du har ");
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -32,12 +33,12 @@ public class Games
                 Console.WriteLine(" poeng!");
 
                 Console.WriteLine("------------------------------------------------------------------------------------");
-                a = rnd.Next(0, i); b = rnd.Next(0, i);
-                Console.Write($"{a} * {b} = ");
-                string input = Console.ReadLine() ?? "-1";
+                a = rnd.Next(0, 11); b = rnd.Next(0, 11);
+                Console.Write($"Oppgave {i}: {a} * {b} = ");
+                string input1 = Console.ReadLine() ?? "-1";
                 try
                 {
-                    if(a * b == Convert.ToInt32(input))
+                    if(a * b == Convert.ToInt32(input1))
                         score++;
                     else
                         lives--;
@@ -49,7 +50,42 @@ public class Games
                 }
                     
             }
-             Console.Clear();
+            for(int i = 1; i <= 10; i++)
+            {
+                if(lives > 1) break;
+                Console.Clear();
+                Console.WriteLine("~~Mattematikk: Andre nivå - 2 poeng per rett svar~~");
+
+                Console.Write($"Du har ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                if (lives < 2)Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write($"{lives}");
+                Console.ResetColor();
+                Console.Write(" liv || Du har ");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write($"{score}");
+                Console.ResetColor();
+                Console.WriteLine(" poeng!");
+
+                Console.WriteLine("------------------------------------------------------------------------------------");
+                a = rnd.Next(0, 11); b = rnd.Next(0, 11); c= rnd.Next(0,11);
+                Console.Write($"Oppgave {i}: {a} * {b} * {c} = ");
+                string input2 = Console.ReadLine() ?? "-1";
+                try
+                {
+                    if(a * b == Convert.ToInt32(input2))
+                        score += 2;
+                    else
+                        lives--;
+
+                }
+                catch(FormatException)
+                {
+                    lives--;
+                }
+
+            }
+            Console.Clear();
             Console.WriteLine("~~Game Over~~");
             Console.WriteLine("------------------------------------------------------------------------------------");    
             Console.Write("Du fikk ");
