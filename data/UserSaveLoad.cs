@@ -10,7 +10,7 @@ namespace UserSaveLoader.Data
         public void SaveUser(UserLogin NewUser, string username)
         {
             string json = JsonSerializer.Serialize(NewUser);
-            File.WriteAllText(loginFilepath + username + ".json", json);
+            File.WriteAllText(loginFilepath + username + ".json", json);//saving users to a seperate file for easy access to manual deletion
         }
 
         public UserLogin LoadUser(string username)
@@ -25,6 +25,10 @@ namespace UserSaveLoader.Data
             string json = JsonSerializer.Serialize(NewUserInfo);
             File.WriteAllText(infoFilepath, json);
         }
-        public UserInfo LoadUserInfo(string username)
+        public List<UserInfo> LoadUserInfo(string username)
+        {
+            return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath))
+                    ?? new List<UserInfo>();
+        }
     }
 }
