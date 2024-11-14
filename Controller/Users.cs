@@ -117,7 +117,7 @@ public class LoginAndCreation()
             }
             if (capitalLetter && numberOrSpecialChar && validName) userCreated = true;
         }
-        User user = new User{Username = username, Password = crypto.Hashed(password)};
+        UserLogin user = new UserLogin{Username = username, Password = crypto.Hashed(password)};
         slu.SaveUser(user, username);
         Console.Clear();
         Console.WriteLine("Bruker lagret!");
@@ -127,7 +127,7 @@ public class LoginAndCreation()
 
     public bool LogIn(string username, string password)
     {
-        User user = slu.LoadUser(username);
+        UserLogin user = slu.LoadUser(username);
         if(crypto.Hashed(password) == user.Password && user.Username != "!") return true; 
         return false;
     }

@@ -6,18 +6,25 @@ namespace UserSaveLoader.Data
     public class SaveLoadUser
     {
         private readonly string loginFilepath = "data/UserLogin/";
-        public void SaveUser(User NewUser, string username)
+        private readonly string infoFilepath = "data/UserInfo/Scores.json";
+        public void SaveUser(UserLogin NewUser, string username)
         {
             string json = JsonSerializer.Serialize(NewUser);
             File.WriteAllText(loginFilepath + username + ".json", json);
         }
 
-        public User LoadUser(string username)
+        public UserLogin LoadUser(string username)
         {
             if(File.Exists(loginFilepath + username + ".json"))
-            return JsonSerializer.Deserialize<User>(File.ReadAllText(loginFilepath + username + ".json"))
-                   ?? new User{Username = "!", Password = "!"};
-            return new User{Username = "!", Password = "!"};
+            return JsonSerializer.Deserialize<UserLogin>(File.ReadAllText(loginFilepath + username + ".json"))
+                   ?? new UserLogin{Username = "!", Password = "!"};
+            return new UserLogin{Username = "!", Password = "!"};
         }
+        public void SaveUserInfo(UserInfo NewUserInfo)
+        {
+            string json = JsonSerializer.Serialize(NewUserInfo);
+            File.WriteAllText(infoFilepath, json);
+        }
+        public UserInfo LoadUserInfo(string username)
     }
 }

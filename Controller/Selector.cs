@@ -7,7 +7,7 @@ public class Selector()
             Console.Clear();
             Console.WriteLine("Velg spill");
             Console.WriteLine("1. Matte");
-            Console.WriteLine("0. Tilbake")
+            Console.WriteLine("0. Tilbake");
             ConsoleKey menuChoice = Console.ReadKey().Key;
             switch (menuChoice)
             {
