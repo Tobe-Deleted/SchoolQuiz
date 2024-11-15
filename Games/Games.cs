@@ -10,7 +10,7 @@ public class Games
         UserInfo CurrentUser = UserInfoList.Find(x => x.Username == username) 
                             ?? new UserInfo{Username = username, MathScore = 0};
         Random rnd = new Random();
-        int a; int b; int c; int d; int e;
+        int a; int b; int c; /*int d; int e;*/
         while(true)
         {
             int lives = 3;
@@ -131,7 +131,6 @@ public class Games
             Console.Write($"{score}");
             Console.ResetColor();
             Console.WriteLine(" poeng!");
-            Console.WriteLine("------------------------------------------------------------------------------------");
             if (score > CurrentUser.MathScore) 
             {
                 CurrentUser.MathScore = score;
