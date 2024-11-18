@@ -7,8 +7,9 @@ public class Games
     {
         SaveLoadUser slu = new SaveLoadUser();
         List<UserInfo> UserInfoList = slu.LoadUserInfo();
-        UserInfo CurrentUser = UserInfoList.Find(x => x.Username == username) 
+        UserInfo CurrentUser = UserInfoList.Find(x => x.Username == username.ToLower()) 
                             ?? new UserInfo{Username = username, MathScore = 0};
+        
         Random rnd = new Random();
         int a; int b; int c; /*int d; int e;*/
         while(true)
@@ -33,8 +34,11 @@ public class Games
                 Console.WriteLine(" poeng!");
 
                 Console.WriteLine("------------------------------------------------------------------------------------");
-                a = rnd.Next(0, 11); b = rnd.Next(0, 11);
-                Console.Write($"Oppgave {i}: {a} * {b} = ");
+                a = rnd.Next(1, 11); b = rnd.Next(1, 11);
+                Console.Write($"Oppgave {i}: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write($"{a} * {b} = ");
+                Console.ResetColor();
                 string input1 = Console.ReadLine() ?? "g";
                 try
                 {
@@ -51,7 +55,9 @@ public class Games
                     {
                         lives--;
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"Feil");
+                        Console.Write($"Feil. Svaret var ");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"{a * b}");
                         Console.ResetColor();
                         Console.Write("trykk en knapp for neste oppgave");
                         Console.ReadKey();
@@ -62,7 +68,9 @@ public class Games
                 {
                     lives--;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Feil");
+                    Console.Write($"Feil. Svaret var ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"{a * b}");
                     Console.ResetColor();
                     Console.Write("trykk en knapp for neste oppgave");
                     Console.ReadKey();
@@ -87,8 +95,11 @@ public class Games
                 Console.WriteLine(" poeng!");
 
                 Console.WriteLine("------------------------------------------------------------------------------------");
-                a = rnd.Next(0, 11); b = rnd.Next(0, 11); c= rnd.Next(0,11);
-                Console.Write($"Oppgave {i}: {a} * {b} * {c} = ");
+                a = rnd.Next(1, 11); b = rnd.Next(1, 11); c = rnd.Next(1,11);
+                Console.Write($"Oppgave {i}: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write($"{a} * {b} * {c} = ");
+                Console.ResetColor();
                 string input2 = Console.ReadLine() ?? "g";
                 try
                 {
@@ -105,7 +116,9 @@ public class Games
                     {
                         lives--;
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"Feil");
+                        Console.Write($"Feil. Svaret var ");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"{a * b * c}");
                         Console.ResetColor();
                         Console.Write("trykk en knapp for neste oppgave");
                         Console.ReadKey();
@@ -116,7 +129,9 @@ public class Games
                 {
                     lives--;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Feil");
+                    Console.Write($"Feil. Svaret var ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"{a * b * c}");
                     Console.ResetColor();
                     Console.Write("trykk en knapp for neste oppgave");
                     Console.ReadKey();
@@ -136,10 +151,11 @@ public class Games
                 CurrentUser.MathScore = score;
                 CurrentUser.TotalScore = CurrentUser.MathScore;//UPDATE: Må oppdateres med fremtidige scores
                 Console.WriteLine($"Ny Highscore! Din nye highscore er {CurrentUser.MathScore}");
-                slu.SaveUserInfo(CurrentUser);
+                UserInfoList.Add(CurrentUser);
+                slu.SaveUserInfo(UserInfoList);
             }
             else
-                Console.WriteLine($"Ikke ny highscore. Din Highscore er {CurrentUser.MathScore}");
+                Console.WriteLine($"Ikke ny highscore. Din tidligere Highscore er {CurrentUser.MathScore}");
             Console.ReadKey();
             Checks checks = new Checks();
             if (checks.BackToMain("Vil du starte et nytt spill?"))

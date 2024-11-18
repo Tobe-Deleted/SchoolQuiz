@@ -11,8 +11,9 @@ public class LeaderBoard()
         Console.WriteLine("----------------------------------------------------------------------------------------");
         for(int i = 0; i < users.Count(); i++)
         {
+            Console.Write($"{i+1}. ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{i+1}. {users[i].TotalScore}   ");
+            Console.Write($"{users[i].TotalScore}   ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{users[i].Username}");
             Console.ResetColor();

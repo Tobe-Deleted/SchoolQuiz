@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace UserSaveLoader.Data
 {
@@ -20,7 +21,7 @@ namespace UserSaveLoader.Data
                    ?? new UserLogin{Username = "!", Password = "!"};
             return new UserLogin{Username = "!", Password = "!"};
         }
-        public void SaveUserInfo(UserInfo NewUserInfo)
+        public void SaveUserInfo(List<UserInfo> NewUserInfo)
         {
             string json = JsonSerializer.Serialize(NewUserInfo);
             File.WriteAllText(infoFilepath, json);
@@ -28,7 +29,7 @@ namespace UserSaveLoader.Data
         public List<UserInfo> LoadUserInfo()
         {
             if (File.Exists(infoFilepath))
-                return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath))
+                return JsonSerializer.Deserialize<List<UserInfo>>(File.ReadAllText(infoFilepath), new JsonSerializerOptions { WriteIndented=true})
                        ?? new List<UserInfo>();
             return new List<UserInfo>();
         }

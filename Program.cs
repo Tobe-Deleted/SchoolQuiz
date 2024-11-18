@@ -52,6 +52,7 @@ class Program
     static bool LoggedInMainMenu(string username)
     {
         Selector selector = new Selector();
+        LeaderBoard leaderBoard = new LeaderBoard();
         while (true)
         {
             Console.Clear();
@@ -72,6 +73,7 @@ class Program
                     selector.SelectGame(username);
                     break;
                 case ConsoleKey.D2:
+                    leaderBoard.LeaderBoardMain();
                     break;
                 case ConsoleKey.D3:
                     break;
