@@ -7,7 +7,7 @@ public class UserLogin()
 public class UserInfo()
 {
     public required string Username {get; set;}
-    public required int MathScore {get; set;}
+    public int MathScore {get; set;}
     public int TotalScore {get; set;}
     //More scores to come
     
