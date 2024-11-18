@@ -10,10 +10,10 @@ public class Encryption()
         for (int i = 0; i < 10; i++)
         {
             if (i > 0) 
-            {password = tempHash;
-            result += password;}
-            Console.WriteLine(password);
-            Console.ReadKey();
+            {
+                password = tempHash;
+                result += password;
+            }
             tempHash = "";
             foreach (char ch in password)
             {

@@ -34,7 +34,7 @@ public class Games
                 Console.WriteLine(" poeng!");
 
                 Console.WriteLine("------------------------------------------------------------------------------------");
-                a = rnd.Next(1, 11); b = rnd.Next(1, 11);
+                a = rnd.Next(2, 11); b = rnd.Next(2, 11);
                 Console.Write($"Oppgave {i}: ");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"{a} * {b} = ");
@@ -95,7 +95,7 @@ public class Games
                 Console.WriteLine(" poeng!");
 
                 Console.WriteLine("------------------------------------------------------------------------------------");
-                a = rnd.Next(1, 11); b = rnd.Next(1, 11); c = rnd.Next(1,11);
+                a = rnd.Next(2, 11); b = rnd.Next(2, 11); c = rnd.Next(2,11);
                 Console.Write($"Oppgave {i}: ");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"{a} * {b} * {c} = ");
