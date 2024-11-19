@@ -10,18 +10,22 @@ public class LeaderBoard()
         int scoreBoard = 0;
         while (true)
         {
-            if (scoreBoard < 0) scoreBoard = 1;
-            if (scoreBoard > 1) scoreBoard = 0;
+            if (scoreBoard < 0) scoreBoard = 2;
+            if (scoreBoard > 2) scoreBoard = 0;
             Console.Clear();
             switch (scoreBoard)
             {
                 case 0:
-                    Console.WriteLine("~~Ledertavle Total Poeng~~");
-                    users = users.OrderBy(x => x.TotalScore).Reverse().ToList(); //TODO: fix sorting
+                    Console.WriteLine("~~Ledertavle Total Score~~");
+                    users = users.OrderBy(x => x.TotalScore).Reverse().ToList();
                     break;
                 case 1:
-                    Console.WriteLine("~~Ledertavle Matte Poeng~~");
-                    users = users.OrderBy(x => x.MathScore).Reverse().ToList(); //TODO: fix sorting
+                    Console.WriteLine("~~Ledertavle Matte Score~~");
+                    users = users.OrderBy(x => x.MathScore).Reverse().ToList();
+                    break;
+                case 2:
+                    Console.WriteLine("~~Ledertavle Engelsk Score~~");
+                    users = users.OrderBy(x => x.EnglishScore).Reverse().ToList();
                     break;
             }
             Console.WriteLine("----------------------------------------------------------------------------------------");
@@ -32,10 +36,13 @@ public class LeaderBoard()
                 switch (scoreBoard)
                 {   
                     case 0:
-                        if(scoreBoard == 0) Console.Write($"{users[i].TotalScore}   ");
+                        Console.Write($"{users[i].TotalScore}   ");
                         break;
                     case 1:
-                        if(scoreBoard == 1) Console.Write($"{users[i].MathScore}   ");
+                        Console.Write($"{users[i].MathScore}   ");
+                        break;
+                    case 2:
+                        Console.Write($"{users[i].EnglishScore}   ");
                         break;
                 }
                 Console.ForegroundColor = ConsoleColor.Yellow;

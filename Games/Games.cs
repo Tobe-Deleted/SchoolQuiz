@@ -8,7 +8,10 @@ public class Games
         SaveLoadUser slu = new SaveLoadUser();
         List<UserInfo> UserInfoList = slu.LoadUserInfo();
         UserInfo CurrentUser = UserInfoList.Find(x => x.Username == username.ToLower()) 
-                            ?? new UserInfo{Username = username, MathScore = 0};
+                            ?? new UserInfo
+                            {Username = username, TotalScore = 0, MathScore = 0, EnglishScore = 0,
+                             aScore = 0, bScore = 0, cScore = 0, dScore = 0, eScore = 0, fScore = 0};
+                             //added a bunch of scores to avoid corrupting future user profiles when program is updated
         
         Random rnd = new Random();
         int a; int b; int c; /*int d; int e;*/
