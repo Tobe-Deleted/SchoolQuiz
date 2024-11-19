@@ -17,11 +17,11 @@ public class LeaderBoard()
             {
                 case 0:
                     Console.WriteLine("~~Ledertavle Total Poeng~~");
-                    users = users.OrderBy(x => x.TotalScore).ToList(); //TODO: fix sorting
+                    users = users.OrderBy(x => x.TotalScore).Reverse().ToList(); //TODO: fix sorting
                     break;
                 case 1:
                     Console.WriteLine("~~Ledertavle Matte Poeng~~");
-                    users = users.OrderBy(x => x.MathScore).ToList(); //TODO: fix sorting
+                    users = users.OrderBy(x => x.MathScore).Reverse().ToList(); //TODO: fix sorting
                     break;
             }
             Console.WriteLine("----------------------------------------------------------------------------------------");
