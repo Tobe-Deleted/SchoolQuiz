@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NbkOYV0sAX0=",
+  "dgSpecHash": "iHLxoaMOIsk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\olli9\\VSC\\kodehode\\loginProject\\loginProject.csproj",
+  "projectFilePath": "C:\\Users\\Olive\\Documents\\kodehode\\SkoleQuiz\\loginProject.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\olli9\\.nuget\\packages\\spectre.console\\0.49.1\\spectre.console.0.49.1.nupkg.sha512"
+    "C:\\Users\\Olive\\.nuget\\packages\\spectre.console\\0.49.1\\spectre.console.0.49.1.nupkg.sha512"
   ],
   "logs": []
 }

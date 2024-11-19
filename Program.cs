@@ -1,4 +1,6 @@
-﻿namespace loginProject;
+﻿using System.Drawing;
+
+namespace loginProject;
 //TODO: check out Spectre.Console
 
 class Program
@@ -56,7 +58,9 @@ class Program
         while (true)
         {
             Console.Clear();
-            Console.WriteLine($"Du er logget inn som {username}");
+            Console.Write($"Du er logget inn som ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{username}");
             //Console.ReadKey();
             Console.WriteLine("----------------------------------------------------------------------------------------");
             Console.WriteLine("1. Spill");
