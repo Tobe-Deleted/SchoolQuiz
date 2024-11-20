@@ -49,3 +49,15 @@ C:\Users\olli9\VSC\kodehode\loginProject\obj\Debug\net8.0\refint\loginProject.dl
 C:\Users\olli9\VSC\kodehode\loginProject\obj\Debug\net8.0\loginProject.pdb
 C:\Users\olli9\VSC\kodehode\loginProject\obj\Debug\net8.0\loginProject.genruntimeconfig.cache
 C:\Users\olli9\VSC\kodehode\loginProject\obj\Debug\net8.0\ref\loginProject.dll
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\data\UserInfo\Scores.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\data\UserLogin\lso051.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\bin\Debug\net8.0\data\UserLogin\test2.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\loginProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets\msbuild.loginProject.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets\msbuild.build.loginProject.props
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.loginProject.props
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.loginProject.props
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Olive\Documents\kodehode\SkoleQuiz\obj\Debug\net8.0\scopedcss\bundle\loginProject.styles.css

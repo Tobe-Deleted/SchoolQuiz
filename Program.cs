@@ -54,6 +54,7 @@ class Program
     static bool LoggedInMainMenu(string username)
     {
         Selector selector = new Selector();
+        LoginAndCreation lac = new LoginAndCreation();
         LeaderBoard leaderBoard = new LeaderBoard();
         while (true)
         {
@@ -61,7 +62,7 @@ class Program
             Console.Write($"Du er logget inn som ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{username}");
-            //Console.ReadKey();
+            Console.ResetColor();
             Console.WriteLine("----------------------------------------------------------------------------------------");
             Console.WriteLine("1. Spill");
             Console.WriteLine("2. Se Ledertavle");
@@ -80,6 +81,7 @@ class Program
                     leaderBoard.LeaderBoardMain();
                     break;
                 case ConsoleKey.D3:
+                    lac.ChangePassword(username);
                     break;
             }
         }

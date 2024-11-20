@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks.Dataflow;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Identity;
 using UserSaveLoader.Data;
 public class LoginAndCreation()
 {
@@ -64,7 +66,7 @@ public class LoginAndCreation()
                 Console.Clear();
                 Console.WriteLine("~~Lag Bruker~~");
                 Console.Write("Brukernavn: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;//Just testing
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(username);
                 Console.ResetColor();
                 Console.Write("Passord: ");
@@ -130,5 +132,78 @@ public class LoginAndCreation()
         UserLogin user = slu.LoadUser(username);
         if(crypto.Hashed(password) == user.Password && user.Username != "!") return true; 
         return false;
+    }
+    public void ChangePassword(string username)
+    {
+        UserLogin user = slu.LoadUser(username);
+        string password = "";
+        bool numberOrSpecialChar = false; bool capitalLetter = false; bool match = false;
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("~~Bytt passord~~");
+                Console.Write("Brukernavn: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(username);
+                Console.ResetColor();
+                Console.Write("Nåhværende passord: ");
+                if (LogIn(username, Console.ReadLine() ?? "!")) 
+                    break;
+                Console.WriteLine("Feil passord");
+                checks.BackToMain("Vil du prøve på nytt?");
+            }
+        while (!numberOrSpecialChar || !capitalLetter || !match)
+            {
+                Console.Write("Nytt Passord: ");
+                password = Console.ReadLine() ?? "!";
+
+                if (password.Length > 6)
+                {
+                    foreach (char ch in "1234567890!@#¤%&/()=?+}][{€$£@-_,;:.^¨~* '")
+                    {
+                        if(password.Contains(ch))
+                        {
+                            numberOrSpecialChar = true;
+                            break;
+                        }
+                    }
+                    foreach (char ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ")
+                    {
+
+                        if(password.Contains(ch))
+                        {
+                            capitalLetter = true;
+                            break;
+                        }
+                    }
+                    if(!numberOrSpecialChar || !capitalLetter) 
+                    {
+                        Console.WriteLine("passord må inneholde minst én stor bokstav og et spesialtegn eller nummer\n");
+                        if (checks.BackToMain("Vil du prøve på nytt?"))
+                            return;
+                    }
+                }
+                else 
+                {
+                    Console.WriteLine("Passord må være mer enn 6 tegn langt");
+                    if (checks.BackToMain("Vil du prøve på nytt?"))
+                        return;
+                }
+                if (capitalLetter && numberOrSpecialChar)
+                {
+                    Console.Write("Skriv inn passord på nytt: ");
+                    if (password == Console.ReadLine())
+                        match = true;
+                    else 
+                    {
+                        Console.WriteLine("Passordet var ikke skrevet inn likt");
+                        if(checks.BackToMain("Vil du prøve på nytt?"))
+                            return;
+                    }
+                }
+
+            }
+            user.Password = crypto.Hashed(password);
+            slu.SaveUser(user, username);
     }
 }
